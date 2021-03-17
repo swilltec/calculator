@@ -25,3 +25,4 @@ class Calc:
     def avg(self, args):
         return sum(args)/len(args)
 
+
