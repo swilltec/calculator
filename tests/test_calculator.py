@@ -105,3 +105,18 @@ def test_avg_removes_lower_outliers():
     res = c.avg([2, 5, 12, 98], lt=10)
     assert res == pytest.approx(55)
 
+
+def test_avg_empty_list():
+    """Test an empty list will return 0"""
+
+    c = Calc()
+    res = c.avg([])
+    assert res == 0
+
+
+def test_avg_manages_empty_list_after_outlier_removal():
+
+    c = Calc()
+    
+    res = c.avg([12, 98], lt=15, ut=90)
+    assert res == 0

@@ -22,12 +22,17 @@ class Calc:
         except:
             return "inf"
 
-    def avg(self, args, ut=None, lt = None):
-        if not ut:
-            ut = max(args)
+    def avg(self, args, ut=None, lt=None):
 
-        if not lt:
-            lt = min(args)
+        _args = args[:]
 
-        _arg = [x for x in args if x <= ut and x >= lt]
-        return sum(_arg)/len(_arg)
+        if ut:
+            _args = [x for x in _args if x <= ut]
+
+        if lt:
+           _args = [x for x in _args if x >= lt]
+
+        if not len(_args):
+            return 0
+            
+        return sum(_args)/len(_args)
