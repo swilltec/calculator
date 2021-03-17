@@ -82,7 +82,17 @@ def test_divide_two_numbers():
 
 
 def test_avg_correct_average():
+    """Test average of a list"""
     c = Calc()
 
     res = c.avg([2, 5, 12, 98])
     assert res == 29.25
+
+
+def test_avg_removes_upper_outliers():
+    """Test average of a list without upper threshold"""
+    c = Calc()
+
+    res = c.avg([2, 5, 12, 98], ut=80)
+    assert res == pytest.approx(6.333333)
+

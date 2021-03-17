@@ -21,8 +21,10 @@ class Calc:
             return a / b
         except:
             return "inf"
-    
-    def avg(self, args):
-        return sum(args)/len(args)
 
+    def avg(self, args, ut=None):
+        if not ut:
+            ut = max(args)
 
+        _arg = [x for x in args if x <= ut]
+        return sum(_arg)/len(_arg)
