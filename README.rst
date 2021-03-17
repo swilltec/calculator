@@ -16,7 +16,7 @@ Calculator
 
 
 
-Basic calculator built using pychitectures
+Basic calculator built using clean python architectures
 
 
 * Free software: MIT license

@@ -6,7 +6,7 @@ import pytest
 
 from click.testing import CliRunner
 
-from calculator import calculator
+from calculator.calculator import Calc
 from calculator import cli
 
 
@@ -35,3 +35,54 @@ def test_command_line_interface():
     help_result = runner.invoke(cli.main, ['--help'])
     assert help_result.exit_code == 0
     assert '--help  Show this message and exit.' in help_result.output
+
+
+def test_add_two_numbers():
+    """Test addition of two numbers"""
+
+    c = Calc()
+    result = c.add(3, 5)
+    assert result == 8
+
+
+def test_add_many_numbers():
+    """Test addition of multipy numbers"""
+
+    s = range(100)
+    assert Calc().add(*s) == 4950
+
+
+def test_subtract_two_numbers():
+    """Test the difference between two numbers"""
+
+    res = Calc().subtract(10, 3)
+    assert res == 7
+
+
+def test_multiply_two_numbers():
+    """Test product of two numbers"""
+
+    res = Calc().multiply(6, 4)
+    assert res == 24
+
+
+def test_multiply_mul_numbers():
+    """Test product of multiple numbers"""
+
+    c = Calc()
+    with pytest.raises(ValueError):
+        c.multiply(3, 0)
+
+
+def test_divide_two_numbers():
+    """Test division of two numbers"""
+
+    res = Calc().divide(8, 4)
+    assert res == 2
+
+
+def test_avg_correct_average():
+    c = Calc()
+
+    res = c.avg([2, 5, 12, 98])
+    assert res == 29.25
