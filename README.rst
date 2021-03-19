@@ -16,7 +16,7 @@ Calculator
 
 
 
-Basic calculator built using clean python architectures
+A small project used to practise clean python architecture
 
 
 * Free software: MIT license
